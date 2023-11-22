@@ -1,0 +1,73 @@
+.aboutUsSection {
+  margin-top: 30px;
+  padding: 0px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: -60px;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutUsSection {
+    margin-top: 30px;
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: -60px;
+  }
+}
+
+.aboutUsSection .about {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.aboutUsSection .about h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.aboutUsSection .about h1 span {
+  color: rebeccapurple;
+}
+
+.aboutUsSection .about p {
+  color: #2d2d2d;
+  font-size: 22px;
+}
+
+.aboutUsSection .vision {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aboutUsSection .vision h2 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.aboutUsSection .vision p {
+  color: #2d2d2d;
+  font-size: 22px;
+}
+
+.aboutUsSection .mission {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aboutUsSection .mission h2 {
+  font-size: 30px;
+}
+
+.aboutUsSection .mission p {
+  color: #2d2d2d;
+  font-size: 22px;
+}
+.profile {
+  border-radius: 50% !important;
+}

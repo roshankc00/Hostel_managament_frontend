@@ -1,0 +1,35 @@
+.input[type="text"],
+.input[type="email"],
+.input[type="password"] {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s;
+  font-size: 1rem;
+
+}
+
+
+
+/* Style the labels for floating effect */
+.label {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  transition: all 0.3s;
+  font-size: 1rem;
+  color: #a5a5a5;
+  pointer-events: none;
+  padding: 0 4px;
+}
+
+
+/* Move the label up when input is focused */
+.input:focus + label,
+.input:not(:placeholder-shown) + label {
+  top: -0.75rem;
+  background: #fff;
+  color: #484848;
+}

@@ -1,0 +1,22 @@
+.search_bar {
+  max-width: 1200px;
+  width: 80vw;
+  outline: none;
+  border: 2px solid #625f5f;
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+.search_bar:focus {
+  box-shadow: 1px 2px 10px rgba(100, 99, 99, 0.8);
+}
+/* flex items-center justify-center mt-10 sticky top-[80px] z-1000  */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  max-width: 1280px;
+  background-color: #a5d0fc;
+  padding: 40px 20px;
+  border-radius: 20px;
+}

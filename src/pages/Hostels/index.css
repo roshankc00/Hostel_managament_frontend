@@ -1,0 +1,22 @@
+/*  my-10 grid gap-10 mx-auto */
+.hostels {
+  margin: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+}
+@media (max-width: 1410px) {
+  .hostels {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 1050px) {
+  .hostels {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 690px) {
+  .hostels {
+    grid-template-columns: 1fr;
+  }
+}
