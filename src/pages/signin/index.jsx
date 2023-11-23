@@ -6,6 +6,7 @@ import { errorToast, successToast } from "../../services/toastify.service";
 import { useDispatch } from "react-redux";
 import { logedin } from "./auth.slice";
 import SignInWithGoogle from "../../components/SignInWithGoogle";
+import styles from "./signin.module.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -59,36 +60,38 @@ const SignIn = () => {
         {({ isSubmitting }) => {
           return (
             <Form>
-              <div className="mb-4">
-                <label htmlFor="email" className="text-[20px] font-semibold">
-                  Email:
-                </label>
+              <div className="mb-4 relative">
                 <Field
+                  placeholder=""
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full border px-4 py-2"
+                  className={`w-full ${styles.input}`}
                 ></Field>
+                <label htmlFor="email" className={`${styles.label}`}>
+                  Email
+                </label>
                 <ErrorMessage
                   name="email"
                   component="div"
-                  className="text-red-500 mt-1"
+                  className="text-red-500 absolute text-xs bottom-[-5px]"
                 />
               </div>
-              <div className="mb-4">
-                <label htmlFor="password" className="text-[20px] font-semibold">
-                  Password:
-                </label>
+              <div className="mb-4 relative">
                 <Field
+                  placeholder=""
                   type="password"
                   id="password"
                   name="password"
-                  className="w-full border px-4 py-2"
+                  className={`w-full ${styles.input}`}
                 ></Field>
+                <label htmlFor="password" className={`${styles.label}`}>
+                  Password
+                </label>
                 <ErrorMessage
                   name="password"
                   component="div"
-                  className="text-red-500 mt-1"
+                  className="text-red-500 absolute text-xs bottom-[-5px]"
                 />
               </div>
               <button

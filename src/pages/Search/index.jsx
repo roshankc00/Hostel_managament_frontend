@@ -27,7 +27,7 @@ const Search = () => {
   }, [keyword]);
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-4 -mt-8">
+      <div className="flex flex-col items-center justify-center gap-8 -mt-8">
         <SearchBar />
         {searchData &&
           searchData.map((search) => {

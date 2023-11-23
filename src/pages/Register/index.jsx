@@ -1,8 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
-import "./register.module.css";
+import styles from "./register.module.css";
 import { addData } from "../../services/axios.service";
-import { toast } from "react-toastify";
+
 import { errorToast, successToast } from "../../services/toastify.service";
 import { useNavigate } from "react-router-dom";
 
@@ -57,13 +57,15 @@ const RegisterHotel = () => {
         >
           <Form className="w-[80%]">
             <div className="mb-4 relative w-full">
-              <label htmlFor="name">Name</label>
               <Field
                 placeholder=""
                 type="text"
                 name="name"
-                className="w-full"
+                className={`w-full ${styles.input}`}
               ></Field>
+              <label htmlFor="name" className={`${styles.label}`}>
+                Name
+              </label>
               <ErrorMessage
                 component="div"
                 name="name"
@@ -71,8 +73,15 @@ const RegisterHotel = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="hostelName">Hostel Name</label>
-              <Field placeholder="" type="text" name="hostelName"></Field>
+              <Field
+                placeholder=""
+                type="text"
+                name="hostelName"
+                className={`w-full ${styles.input}`}
+              ></Field>
+              <label htmlFor="hostelName" className={`${styles.label}`}>
+                Hostel Name
+              </label>
               <ErrorMessage
                 component="div"
                 name="hostelName"
@@ -80,13 +89,15 @@ const RegisterHotel = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="city">City</label>
               <Field
                 placeholder=""
                 type="text"
                 name="city"
-                className="input"
+                className={`w-full ${styles.input}`}
               ></Field>
+              <label htmlFor="city" className={`${styles.label}`}>
+                City
+              </label>
               <ErrorMessage
                 component="div"
                 name="city"
@@ -94,8 +105,16 @@ const RegisterHotel = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="phone">Phone</label>
-              <Field placeholder="" type="text" id="phone" name="phone"></Field>
+              <Field
+                placeholder=""
+                type="text"
+                id="phone"
+                name="phone"
+                className={`w-full ${styles.input}`}
+              ></Field>
+              <label htmlFor="phone" className={`${styles.label}`}>
+                Phone
+              </label>
               <ErrorMessage
                 name="phone"
                 component="div"
@@ -103,13 +122,16 @@ const RegisterHotel = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="email">Email</label>
               <Field
                 placeholder=""
                 type="email"
                 id="email"
                 name="email"
+                className={`w-full ${styles.input}`}
               ></Field>
+              <label htmlFor="email" className={`${styles.label}`}>
+                Email
+              </label>
               <ErrorMessage
                 name="email"
                 component="div"
@@ -117,13 +139,16 @@ const RegisterHotel = () => {
               />
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="password">Password</label>
               <Field
                 placeholder=""
                 type="password"
                 id="password"
                 name="password"
+                className={`w-full ${styles.input}`}
               ></Field>
+              <label htmlFor="password" className={`${styles.label}`}>
+                Password
+              </label>
               <ErrorMessage
                 name="password"
                 component="div"

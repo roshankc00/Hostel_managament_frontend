@@ -37,13 +37,13 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/location" element={<HostelLocation />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/verify" element={<Verification />} />
+          <Route path="/hostel-register" element={<RegisterHotel />} />
+          <Route path="/orders/:id" element={<BookForm />} />
+          <Route path="/search/:keyword" element={<Search />} />
         </Route>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/verify" element={<Verification />} />
-        <Route path="/hostel-register" element={<RegisterHotel />} />
-        <Route path="/orders/:id" element={<BookForm />} />
-        <Route path="/search/:keyword" element={<Search />} />
 
         {/* superadmin Route start */}
         <Route path="/" element={<SuperAdminSidebar />}>

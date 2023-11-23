@@ -2,7 +2,7 @@ import { FaTrash, FaEdit, FaArrowLeft } from "react-icons/fa";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { object, string } from "yup";
 import { useEffect, useState } from "react";
-import "./food.module.css";
+import styles from "./food.module.css";
 import {
   addData,
   deleteData,
@@ -103,8 +103,8 @@ const FoodRoutine = () => {
   };
 
   return (
-    <main className="max-w-[1080px] mx-auto mt-4 mb-[10rem]">
-      <div className="relative">
+    <main className="mt-4 mb-[10rem] flex items-right justify-end">
+      <div className="max-w-[1080px] min-w-[350px] w-[50vw] relative sm:mr-[10vw] mr-0">
         <h1 className="text-center font-semibold text-2xl mb-2">
           Food Routine
         </h1>
@@ -453,8 +453,15 @@ const FoodRoutine = () => {
                   return (
                     <Form className="w-[80%]">
                       <div className="mb-6 relative">
-                        <Field placeholder="" type="text" name="time"></Field>
-                        <label htmlFor="time">Time</label>
+                        <Field
+                          placeholder=""
+                          type="text"
+                          name="time"
+                          className={`w-full ${styles.input}`}
+                        ></Field>
+                        <label htmlFor="time" className={`${styles.label}`}>
+                          Time
+                        </label>
                         <ErrorMessage
                           component="div"
                           name="time"
@@ -466,9 +473,11 @@ const FoodRoutine = () => {
                           placeholder=""
                           type="text"
                           name="title"
-                          className="w-full"
+                          className={`w-full ${styles.input}`}
                         ></Field>
-                        <label htmlFor="title">Food Name</label>
+                        <label htmlFor="title" className={`${styles.label}`}>
+                          Food Name
+                        </label>
                         <ErrorMessage
                           component="div"
                           name="title"
@@ -517,11 +526,14 @@ const FoodRoutine = () => {
                   return (
                     <Form className="w-[80%]">
                       <div className="mb-6 relative">
-                        <p className="mb-2">Time</p>
+                        <label htmlFor="time" className="mb-2">
+                          Time:
+                        </label>
                         <Field
                           type="text"
                           name="time"
                           value={values?.time}
+                          className={`w-full ${styles.input}`}
                         ></Field>
                         <ErrorMessage
                           component="div"
@@ -530,12 +542,14 @@ const FoodRoutine = () => {
                         />
                       </div>
                       <div className="mb-6 relative w-full">
-                        <p className="mb-2">Food Name</p>
+                        <label htmlFor="title" className="mb-2">
+                          Food Name
+                        </label>
                         <Field
                           type="text"
                           name="title"
                           value={values?.title}
-                          className="w-full"
+                          className={`w-full ${styles.input}`}
                         ></Field>
                         <ErrorMessage
                           component="div"

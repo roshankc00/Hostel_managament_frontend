@@ -1,7 +1,7 @@
 const LandingPage = () => {
   return (
     <main className="mx-auto flex items-center justify-center md:block ">
-      <div className="flex flex-center justify-between mx-6 gap-4 md:flex-row flex-col-reverse h-[50vh]">
+      <div className="flex flex-center justify-between mx-6 gap-4 md:flex-row flex-col-reverse">
         <div className="flex flex-col gap-10 justify-center">
           <h1 className="md:text-5xl text-center md:text-left text-4xl text-[#63a0df]">
             Best Hostel{" "}

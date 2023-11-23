@@ -1,13 +1,5 @@
-import React from 'react'
-
 const DashHome = () => {
-  return (
-    <div className='text-black'>
-        DasHHIEasda
-        
+  return <div className="text-black">DasHHIEasda</div>;
+};
 
-    </div>
-  )
-}
-
-export default DashHome
+export default DashHome;

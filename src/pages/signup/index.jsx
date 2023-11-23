@@ -4,10 +4,9 @@ import { addData } from "../../services/axios.service";
 import { errorToast, successToast } from "../../services/toastify.service";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import styles from "./signup.module.css";
 const SignUp = () => {
   const navigate = useNavigate();
-
-  
 
   const initialValue = {
     name: "",
@@ -54,69 +53,70 @@ const SignUp = () => {
           {({ isSubmitting }) => {
             return (
               <Form>
-                <div className="mb-4">
-                  <label className="text-[20px] font-semibold">Name:</label>
+                <div className="mb-4 relative">
                   <Field
+                    placeholder=""
                     type="text"
                     name="name"
-                    className="mb-2 p-2 w-full border"
+                    className={`w-full ${styles.input}`}
                   ></Field>
+                  <label className={`${styles.label}`}>Name</label>
                   <ErrorMessage
                     component="div"
                     name="name"
-                    className="text-red-500"
+                    className="text-red-500 absolute text-xs bottom-[-5px]"
                   />
                 </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="text-[20px] font-semibold">
-                    Email:
-                  </label>
+                <div className="mb-4 relative">
                   <Field
+                    placeholder=""
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full border px-4 py-2"
+                    className={`w-full ${styles.input}`}
                   ></Field>
+                  <label htmlFor="email" className={`${styles.label}`}>
+                    Email
+                  </label>
                   <ErrorMessage
                     name="email"
                     component="div"
-                    className="text-red-500 mt-1"
+                    className="text-red-500 absolute text-xs bottom-[-5px]"
                   />
                 </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="password"
-                    className="text-[20px] font-semibold"
-                  >
-                    Password:
-                  </label>
+                <div className="mb-4 relative">
                   <Field
+                    placeholder=""
                     type="password"
                     id="password"
                     name="password"
-                    className="w-full border px-4 py-2"
+                    className={`w-full ${styles.input}`}
                   ></Field>
+                  <label htmlFor="password" className={`${styles.label}`}>
+                    Password
+                  </label>
                   <ErrorMessage
                     name="password"
                     component="div"
-                    className="text-red-500 mt-1"
+                    className="text-red-500 absolute text-xs bottom-[-5px]"
                   />
                 </div>
 
-                <div className="mb-4">
-                  <label htmlFor="phone" className="text-[20px] font-semibold">
-                    Phone:
-                  </label>
+                <div className="mb-4 relative">
                   <Field
+                    placeholder=""
                     type="text"
                     id="phone"
                     name="phone"
-                    className="w-full border px-4 py-2"
+                    className={`w-full ${styles.input}`}
                   ></Field>
+                  <label htmlFor="phone" className={`${styles.label}`}>
+                    Phone
+                  </label>
                   <ErrorMessage
                     name="phone"
                     component="div"
-                    className="text-red-500 mt-1"
+                    className="text-red-500 absolute text-xs bottom-[-5px]"
                   />
                 </div>
 
