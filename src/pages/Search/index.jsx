@@ -1,13 +1,14 @@
 import SearchCard from "../../components/SearchCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import SearchBar from "../../components/SearchBar";
 
 const Search = () => {
-  console.log("wowowow");
+  const navigate = useNavigate();
   const { keyword } = useParams();
   const [searchData, setSearchData] = useState([]);
+  const hostelId = "65350ac7d1df3a00f85edea2";
 
   console.log(keyword);
 
@@ -32,12 +33,16 @@ const Search = () => {
         {searchData &&
           searchData.map((search) => {
             return (
-              <SearchCard
+              <div
                 key={search._id}
-                name={search?.name}
-                location={search?.location?.city}
-                description={search?.description}
-              />
+                onClick={() => navigate(`/hostels/${hostelId}`)}
+              >
+                <SearchCard
+                  name={search?.name}
+                  location={search?.location?.city}
+                  description={search?.description}
+                />
+              </div>
             );
           })}
       </div>

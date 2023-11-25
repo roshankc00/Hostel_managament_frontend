@@ -28,6 +28,7 @@ import RoomCategory from "./roomCategory";
 
 const SingleHostelPage = () => {
   const { token, isLogedInStatus, userId } = useSelector((state) => state.auth);
+  const [allRules, setAllRules] = useState([]);
   const [reviewData, setreviewData] = useState({
     rating: 0,
     comment: "",
@@ -48,6 +49,7 @@ const SingleHostelPage = () => {
   const handleClose = () => setOpen(false);
 
   const { id } = useParams();
+  const hostelId = "65350ac7d1df3a00f85edea2";
 
   const getSingleHostel = async () => {
     const response = await getData(`hostels/${id}`);
@@ -75,10 +77,6 @@ const SingleHostelPage = () => {
     }
   };
 
-  useEffect(() => {
-    getAllFoodItems();
-  }, []);
-
   const getAllReviews = async () => {
     const response = await addData("reviews-of-hostels", { hostel: id });
     if (response.success) {
@@ -86,12 +84,6 @@ const SingleHostelPage = () => {
       console.log(allReviews);
     }
   };
-
-  useEffect(() => {
-    getSingleHostel();
-    getAllReviews();
-    getAllRoomsOfHostels();
-  }, []);
 
   const handleReviewFormSubmit = async () => {
     setloading(false);
@@ -177,11 +169,31 @@ const SingleHostelPage = () => {
       );
     }
   };
+  // Get Rules
+  const getRules = async () => {
+    const response = await postDataWithHeader(
+      "rules-hostel",
+      { hostelId },
+      token
+    );
+    console.log(response, "getrules");
+    if (response.success) {
+      setAllRules(response.rules);
+    }
+  };
+
+  useEffect(() => {
+    getSingleHostel();
+    getAllFoodItems();
+    getAllReviews();
+    getAllRoomsOfHostels();
+    getRules();
+  }, []);
 
   return (
     <>
       {hostel && allRooms && (
-        <main className="  p-1 sm:p-4">
+        <main className="p-1 sm:p-4">
           <ImageSlider images={hostel.images} />
 
           <div className=" md:flex-row relative">
@@ -202,16 +214,22 @@ const SingleHostelPage = () => {
                 <p className="text-lg font-normal">{hostel?.description}</p>
               </div>
               <div className="mb-5">
-                <h2 className="font-semibold text-xl">Policies and Rules:</h2>
-                <p className="font-normal text-lg">{hostel?.rules}</p>
-                {/* {hostel.rules &&
-                  hostel.rules.map((rule) => {
-                    return (
-                      <div key={rule._id} className="mb-4">
-                        {rule}
-                      </div>
-                    );
-                  })} */}
+                <h2 className="font-semibold text-xl mb-4">
+                  Policies and Rules:
+                </h2>
+                <div className="flex items-start flex-col gap-4">
+                  {allRules &&
+                    allRules.map((rule) => {
+                      return (
+                        <div
+                          key={rule._id}
+                          className="border-2 shadow-xl flex items-center justify-between px-8 py-4 rounded-lg gap-2 mx-auto md:w-[600px] md:mx-0"
+                        >
+                          <p>{rule?.title}</p>
+                        </div>
+                      );
+                    })}
+                </div>
               </div>
               <div>
                 <h1 className="text-center text-2xl font-bold">
@@ -234,7 +252,7 @@ const SingleHostelPage = () => {
               </div>
               <div className="my-5 shadow-lg p-4 rounded-md">
                 <h1 className="text-3xl mb-2 text-center">Google Maps</h1>
-                <Map lat={hostel.latitude} lon={hostel.longitude} />
+                <Map lat={hostel?.latitude} lon={hostel?.longitude} />
               </div>
 
               <div className="mt-5">
@@ -242,7 +260,7 @@ const SingleHostelPage = () => {
                   Reviews and Ratings: ({hostel.noOfReviews})
                 </h1>
                 <div className="border-2 pb-4 rounded-md flex flex-col-reverse xl:flex-row justify-between">
-                  <div className="flex w-full max-w-[768px] p-5 justify-center flex-col">
+                  <div className="flex w-full max-w-[768px] p-5 justify-center flex-col mx-auto">
                     <div className="px-5">
                       {allReviews &&
                         allReviews.map((review) => {
@@ -348,7 +366,7 @@ const SingleHostelPage = () => {
                   </div>
 
                   {isLogedInStatus && (
-                    <div className="flex flex-col xl:w-[300px] w-[360px] h-[250px] mx-auto border-2 p-4 rounded-md xl:sticky xl:my-10 top-[50vh]">
+                    <div className="flex flex-col xl:w-[300px] w-[360px] h-[250px] mx-auto border-2 p-4 rounded-md xl:sticky xl:my-10 top-[50vh] mt-4">
                       <input
                         type="text"
                         placeholder="Comment"
@@ -381,7 +399,7 @@ const SingleHostelPage = () => {
                         </div>
                       </Box>
                       <button
-                        className="p-2 bg-blue-700  text-white px-3 rounded-md ms-[80%]"
+                        className="py-2 bg-blue-700  text-white px-5 rounded-md ms-[60%]"
                         onClick={() => {
                           handleReviewFormSubmit();
                         }}

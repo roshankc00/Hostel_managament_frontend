@@ -58,8 +58,8 @@ const HostelLocation = () => {
   });
 
   return (
-    <main className="flex items-center h-[100vh] justify-end z-20">
-      <div className="flex flex-col gap-[3rem] max-w-[1080px] min-w-[350px] w-[50vw] sm:mr-[10vw] mr-0">
+    <main className="mt-4 mb-[10rem] flex items-right justify-center sm:justify-end">
+      <div className="flex flex-col gap-[3rem] max-w-[1080px] min-w-[350px] w-[50vw] relative sm:mr-[10vw] mr-0">
         <div className="sm:mx-[3rem] mx-2">
           <h1 className="text-center text-2xl font-semibold">Hostel Details</h1>
           {!details && (
@@ -71,27 +71,27 @@ const HostelLocation = () => {
         {details.success && (
           <div className="sm:mx-[3rem] mx-2">
             <div>
-              <h2 className="font-semibold">Description:</h2>
+              <h2 className="font-semibold text-lg">Description:</h2>
               <p>{details?.hostel?.description}</p>
               <hr className="my-2" />
             </div>
             <div>
-              <h2 className="font-semibold">Longitude:</h2>
+              <h2 className="font-semibold text-lg">Longitude:</h2>
               <p>{details?.hostel?.longitude}</p>
               <hr className="my-2" />
             </div>
             <div>
-              <h2 className="font-semibold">Latitude:</h2>
+              <h2 className="font-semibold text-lg">Latitude:</h2>
               <p>{details?.hostel?.latitude}</p>
               <hr className="my-2" />
             </div>
             <div>
-              <h2 className="font-semibold">City:</h2>
+              <h2 className="font-semibold text-lg">City:</h2>
               <p>{details?.hostel?.location?.city}</p>
               <hr className="my-2" />
             </div>
             <div>
-              <h2 className="font-semibold">Street Address:</h2>
+              <h2 className="font-semibold text-lg">Street Address:</h2>
               <p>{details?.hostel?.location?.localLocation}</p>
               <hr className="my-2" />
             </div>

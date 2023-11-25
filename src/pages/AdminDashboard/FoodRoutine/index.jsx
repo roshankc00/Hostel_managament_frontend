@@ -4,7 +4,6 @@ import { object, string } from "yup";
 import { useEffect, useState } from "react";
 import styles from "./food.module.css";
 import {
-  addData,
   deleteData,
   postDataWithHeader,
   updateDataWithHeader,
@@ -26,9 +25,12 @@ const FoodRoutine = () => {
 
   // get hostel details
   const getAllFoodItems = async () => {
-    const response = await addData(`time-hostel`, {
-      hostelId,
-    });
+    const response = await postDataWithHeader(
+      `time-hostel`,
+      { hostelId },
+      token
+    );
+    console.log(response, "foods response");
     if (response.success) {
       setallFood(response.times);
     }
@@ -57,8 +59,9 @@ const FoodRoutine = () => {
       hostelId,
     };
     const response = await postDataWithHeader("time", data, token);
+    console.log(response, "create time response");
     if (response.success) {
-      allFood.push(data);
+      allFood.push(response.times);
       setShowForm(false);
       successToast(response.message);
     }
@@ -105,14 +108,14 @@ const FoodRoutine = () => {
   };
 
   return (
-    <main className="mt-4 mb-[10rem] flex items-right justify-end z-10">
+    <main className="mt-4 mb-[10rem] flex items-right justify-center sm:justify-end">
       <div className="max-w-[1080px] min-w-[350px] w-[50vw] relative sm:mr-[10vw] mr-0">
         <h1 className="text-center font-semibold text-2xl mb-2">
-          Food Routine
+          Weekly Food Routine
         </h1>
         <div className="flex flex-col max-w-[768px] mx-auto mt-2">
           {/* Sunday Food Items */}
-          <h1 className="text-xl mt-5">Category: Sunday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Sunday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -139,7 +142,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit
@@ -157,7 +160,7 @@ const FoodRoutine = () => {
             })}
 
           {/* Monday food Items */}
-          <h1 className="text-xl mt-5">Category: Monday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Monday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -184,7 +187,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit
@@ -202,7 +205,7 @@ const FoodRoutine = () => {
             })}
 
           {/* Tuesday Food Items */}
-          <h1 className="text-xl mt-5">Category: Tuesday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Tuesday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -229,7 +232,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit
@@ -247,7 +250,7 @@ const FoodRoutine = () => {
             })}
 
           {/* Wednesday Food Items */}
-          <h1 className="text-xl mt-5">Category: Wednesday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Wednesday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -274,7 +277,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit
@@ -292,7 +295,7 @@ const FoodRoutine = () => {
             })}
 
           {/* Thursday Food Items */}
-          <h1 className="text-xl mt-5">Category: Thursday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Thursday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -319,7 +322,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit
@@ -337,7 +340,7 @@ const FoodRoutine = () => {
             })}
 
           {/* Friday Food Items */}
-          <h1 className="text-xl mt-5">Category: Friday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Friday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -364,7 +367,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit
@@ -382,7 +385,7 @@ const FoodRoutine = () => {
             })}
 
           {/* Saturday Food Items */}
-          <h1 className="text-xl mt-5">Category: Saturday</h1>
+          <h1 className="text-xl mt-5 font-semibold">Saturday</h1>
           <Button
             variant="contained"
             sx={{ width: "10rem", margin: "20px 0" }}
@@ -409,7 +412,7 @@ const FoodRoutine = () => {
                       <div className="text-center">{food?.title}</div>
                       <div className="flex items-center justify-center gap-4">
                         <FaTrash
-                          className="cursor-pointer w-[1.4rem] h-[1.4rem]"
+                          className="cursor-pointer w-[1.4rem] h-[1.4rem] text-red-600"
                           onClick={() => handleDeleteTime(food._id)}
                         />
                         <FaEdit

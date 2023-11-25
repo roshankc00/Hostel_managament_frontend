@@ -28,8 +28,8 @@ const RoomCategory = () => {
   }, []);
 
   return (
-    <div className="mt-4 flex items-right md:justify-end justify-center lg:mr-[16vw] md:mr-[10vw] sm:mr-[6vw] mr-0">
-      <div className="max-w-[1080px] flex flex-col items-baseline gap-4 min-w-[350px] w-[50vw]">
+    <main className="mt-4 mb-[10rem] flex items-right justify-center sm:justify-end">
+      <div className="max-w-[1080px] min-w-[350px] w-[50vw] relative sm:mr-[10vw] mr-0 flex flex-col gap-4 items-start">
         <Button
           variant="contained"
           onClick={() => navigate(`/admin/room-category-form/${hostelId}`)}
@@ -59,7 +59,7 @@ const RoomCategory = () => {
             })}
         </section>
       </div>
-    </div>
+    </main>
   );
 };
 

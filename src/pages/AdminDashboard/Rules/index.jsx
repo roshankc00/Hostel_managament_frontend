@@ -36,7 +36,6 @@ const Rules = () => {
       { hostelId },
       token
     );
-    console.log(response, "getrules");
     if (response.success) {
       setAllRules(response.rules);
     }
@@ -51,7 +50,6 @@ const Rules = () => {
       { title: values.title, hostelId },
       token
     );
-    console.log(response, "11");
     if (response.success) {
       allRules.push(response.rule);
       setShowForm(false);
@@ -101,8 +99,8 @@ const Rules = () => {
   };
 
   return (
-    <main className="mt-4 mb-[10rem] flex items-right justify-end z-10">
-      <div className="max-w-[1080px] min-w-[350px] w-[50vw] relative sm:mr-[10vw] mr-0">
+    <main className="mt-4 mb-[10rem] flex items-right justify-center sm:justify-end">
+      <div className="max-w-[1080px] min-w-[360px] w-[50vw] relative sm:mr-[10vw] mr-0">
         <h1 className="text-center font-semibold text-2xl mb-2">
           Hostel Rules
         </h1>
@@ -115,11 +113,14 @@ const Rules = () => {
         >
           Add New Rule
         </Button>
-        <div>
+        <div className="flex flex-col gap-4">
           {allRules &&
             allRules.map((rule) => {
               return (
-                <div key={rule._id}>
+                <div
+                  key={rule._id}
+                  className="border-2 shadow-xl flex items-center justify-between px-8 py-4 rounded-lg gap-2"
+                >
                   <p>{rule?.title}</p>
                   <div className="flex items-center justify-center gap-4">
                     <FaTrash
@@ -139,6 +140,7 @@ const Rules = () => {
             })}
         </div>
       </div>
+
       {showForm && (
         <div className="fixed bg-black/[0.85] top-form h-[100vh] top-0 left-0 w-[100vw]">
           <div className="flex items-center flex-col gap-8 justify-center h-full max-w-[768px] mx-auto">
@@ -246,7 +248,7 @@ const Rules = () => {
                         type="submit"
                         className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-3"
                       >
-                        {isSubmitting ? "Adding..." : "Add to Rules"}
+                        {isSubmitting ? "Updating..." : "Update Rule"}
                       </button>
                     </Form>
                   );

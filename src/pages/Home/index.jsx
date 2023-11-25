@@ -37,8 +37,8 @@ const Home = () => {
   };
   return (
     <div className="bg-white text-black max-w-[1280px] mx-auto">
-      <LandingPage />
       <SearchBar />
+      <LandingPage />
       <div className="text-[2rem] mt-[3rem] font-semibold">
         <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
       </div>
