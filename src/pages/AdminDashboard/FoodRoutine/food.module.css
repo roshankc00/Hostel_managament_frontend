@@ -11,7 +11,7 @@ input[type="password"] {
 }
 
 /* Style the labels for floating effect */
-label {
+/* label {
   position: absolute;
   top: 0.75rem;
   left: 1rem;
@@ -20,12 +20,12 @@ label {
   color: #a5a5a5;
   pointer-events: none;
   padding: 0 4px;
-}
+} */
 
 /* Move the label up when input is focused */
-input:focus + label,
+/* input:focus + label,
 input:not(:placeholder-shown) + label {
   top: -0.75rem;
   background: #fff;
   color: #484848;
-}
+} */

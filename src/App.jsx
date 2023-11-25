@@ -19,7 +19,6 @@ import AllUsersResponses from "./pages/UserResponses";
 import Setting from "./pages/Setting";
 import UpdateFaq from "./components/forms/UpdateFaqs";
 import CreateFaq from "./components/forms/AddFaqs";
-import Verification from "./pages/VerifyToken";
 import BookForm from "./components/forms/BookForm";
 import SideBarAdmin from "./pages/AdminDashboard/SideBar";
 import FoodRoutine from "./pages/AdminDashboard/FoodRoutine";
@@ -40,7 +39,6 @@ function App() {
         </Route>
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/verify" element={<Verification />} />
         <Route path="/hostel-register" element={<RegisterHotel />} />
         <Route path="/orders/:id" element={<BookForm />} />
         <Route path="/search/:keyword" element={<Search />} />
