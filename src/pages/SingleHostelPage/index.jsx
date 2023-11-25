@@ -223,10 +223,10 @@ const SingleHostelPage = () => {
                     return (
                       <div key={room._id}>
                         <RoomCategory
-                          name={room.name}
-                          description={room.description}
-                          price={room.price}
-                          image={room.image}
+                          name={room?.name}
+                          description={room?.description}
+                          price={room?.price}
+                          image={room?.image}
                         />
                       </div>
                     );
@@ -241,7 +241,7 @@ const SingleHostelPage = () => {
                 <h1 className="font-semibold text-2xl">
                   Reviews and Ratings: ({hostel.noOfReviews})
                 </h1>
-                <div className="mt-2 border-2 pb-4 rounded-md flex flex-col xl:flex-row justify-between">
+                <div className="border-2 pb-4 rounded-md flex flex-col-reverse xl:flex-row justify-between">
                   <div className="flex w-full max-w-[768px] p-5 justify-center flex-col">
                     <div className="px-5">
                       {allReviews &&
@@ -253,29 +253,29 @@ const SingleHostelPage = () => {
                             >
                               <div className="mx-5">
                                 <h1 className="font-semibold">
-                                  {review.user.name}
+                                  {review?.user?.name}
                                 </h1>
-                                <h1>{review.comment}</h1>
+                                <h1>{review?.comment}</h1>
                                 <Rating
                                   name="read-only"
-                                  value={review.rating}
+                                  value={review?.rating}
                                   readOnly
                                 />
                               </div>
                               <div>
-                                {review.user._id == userId &&
+                                {review?.user?._id == userId &&
                                   isLogedInStatus && (
                                     <div className="flex gap-5">
                                       <button
                                         onClick={() =>
-                                          deleteReviewHandler(review._id)
+                                          deleteReviewHandler(review?._id)
                                         }
                                       >
                                         <DeleteIcon />
                                       </button>
                                       <button
                                         onClick={() =>
-                                          updateReviewHandler(review._id)
+                                          updateReviewHandler(review?._id)
                                         }
                                       >
                                         <EditIcon />

@@ -24,7 +24,10 @@ import BookForm from "./components/forms/BookForm";
 import SideBarAdmin from "./pages/AdminDashboard/SideBar";
 import FoodRoutine from "./pages/AdminDashboard/FoodRoutine";
 import Search from "./pages/Search";
-// import Setting from "./pages/Setting";
+import Rules from "./pages/AdminDashboard/Rules";
+import HostelImages from "./pages/AdminDashboard/HostelImages";
+import RoomCategory from "./pages/AdminDashboard/RoomCategory";
+import RoomsForm from "./components/forms/RoomsForm";
 
 function App() {
   return (
@@ -66,6 +69,13 @@ function App() {
           <Route path="/admin/location" element={<HostelLocation />} />
           <Route path="/admin/foods" element={<FoodRoutine />} />
           <Route path="/admin/settings" element={<Setting />} />
+          <Route path="/admin/rules" element={<Rules />} />
+          <Route path="/admin/images" element={<HostelImages />} />
+          <Route path="/admin/room-category" element={<RoomCategory />} />
+          <Route
+            path="/admin/room-category-form/:hostelId"
+            element={<RoomsForm />}
+          />
         </Route>
 
         {/* admin route ends */}

@@ -58,7 +58,7 @@ const HostelLocation = () => {
   });
 
   return (
-    <main className="flex items-center h-[100vh] justify-end ">
+    <main className="flex items-center h-[100vh] justify-end z-20">
       <div className="flex flex-col gap-[3rem] max-w-[1080px] min-w-[350px] w-[50vw] sm:mr-[10vw] mr-0">
         <div className="sm:mx-[3rem] mx-2">
           <h1 className="text-center text-2xl font-semibold">Hostel Details</h1>

@@ -3,3 +3,9 @@
 * {
   font-family: "Montserrat";
 }
+.sidebar-z-index {
+  z-index: 100 !important;
+}
+.top-form {
+  z-index: 101 !important;
+}

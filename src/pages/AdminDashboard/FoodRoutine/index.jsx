@@ -22,10 +22,12 @@ const FoodRoutine = () => {
   const [updateId, setUpdateId] = useState("");
   const { token } = useSelector((state) => state.auth);
 
+  const hostelId = "65350ac7d1df3a00f85edea2";
+
   // get hostel details
   const getAllFoodItems = async () => {
     const response = await addData(`time-hostel`, {
-      hostelId: "65350ac7d1df3a00f85edea2",
+      hostelId,
     });
     if (response.success) {
       setallFood(response.times);
@@ -52,7 +54,7 @@ const FoodRoutine = () => {
     const data = {
       ...values,
       category: category,
-      hostelId: "65350ac7d1df3a00f85edea2",
+      hostelId,
     };
     const response = await postDataWithHeader("time", data, token);
     if (response.success) {
@@ -103,7 +105,7 @@ const FoodRoutine = () => {
   };
 
   return (
-    <main className="mt-4 mb-[10rem] flex items-right justify-end">
+    <main className="mt-4 mb-[10rem] flex items-right justify-end z-10">
       <div className="max-w-[1080px] min-w-[350px] w-[50vw] relative sm:mr-[10vw] mr-0">
         <h1 className="text-center font-semibold text-2xl mb-2">
           Food Routine
