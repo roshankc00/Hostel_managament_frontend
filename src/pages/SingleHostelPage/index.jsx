@@ -87,17 +87,18 @@ const SingleHostelPage = () => {
   };
 
   const handleReviewFormSubmit = async () => {
-    setloading(false);
     if (reviewData.rating === 0) {
       return errorToast("Please Provide the rating field value");
     } else if (reviewData.comment === "") {
       return errorToast("Please Provide the Comment field value");
     } else {
+      setloading(false);
       const response = await postDataWithHeader(
         "reviews",
         { ...reviewData, hostel: id },
         token
       );
+      setloading(true);
       if (response.success) {
         successToast(
           response.message ? response.message : "Review Added successfully"
@@ -215,10 +216,10 @@ const SingleHostelPage = () => {
                 <p className="text-lg font-normal">{hostel?.description}</p>
               </div>
               <div className="mb-5">
-                <h2 className="font-semibold text-xl mb-4">
+                <h2 className="font-semibold text-xl mb-4 text-center">
                   Policies and Rules:
                 </h2>
-                <div className="flex items-start flex-col gap-4">
+                <div className="flex  flex-col gap-4  items-center">
                   {allRules &&
                     allRules.map((rule) => {
                       return (
@@ -309,7 +310,7 @@ const SingleHostelPage = () => {
                                   aria-labelledby="modal-modal-title"
                                   aria-describedby="modal-modal-description"
                                 >
-                                  <Box className="w-[400px] bg-white rounded-md absolute left-[30%] top-[30%] p-10">
+                                  <Box className="w-[340px] bg-white rounded-md absolute md:left-[30%] top-[30%] p-10 left-[10px]">
                                     <h1 className="text-center mb-2 text-2xl text-slate-800">
                                       {" "}
                                       Update Review
@@ -329,7 +330,7 @@ const SingleHostelPage = () => {
                                           comment: e.target.value,
                                         })
                                       }
-                                      className="outline-none border-none w-[300px] p-2 rounded-md bg-gray-300 my-3"
+                                      className="outline-none border-none w-[100%] p-2 rounded-md bg-gray-300 my-3"
                                     />
                                     <label
                                       htmlFor="rating"
@@ -367,11 +368,11 @@ const SingleHostelPage = () => {
                   </div>
 
                   {isLogedInStatus && (
-                    <div className="flex flex-col xl:w-[300px] w-[360px] h-[250px] mx-auto border-2 p-4 rounded-md xl:sticky xl:my-10 top-[50vh] mt-4">
+                    <div className="flex flex-col justify-center xl:w-[300px] w-[360px] h-[250px] mx-auto border-2 p-4 rounded-md xl:sticky xl:my-10 top-[50vh] mt-4">
                       <input
                         type="text"
                         placeholder="Comment"
-                        className="outline-none border-none w-full p-2 rounded-md bg-gray-300 my-3"
+                        className="outline-none border-none w-[60%] p-2 rounded-md bg-gray-300 my-3"
                         value={reviewData.comment}
                         onChange={(e) =>
                           setreviewData({
@@ -400,7 +401,7 @@ const SingleHostelPage = () => {
                         </div>
                       </Box>
                       <button
-                        className="py-2 bg-blue-700  text-white px-5 rounded-md ms-[60%]"
+                        className="py-2 bg-blue-700  text-white px-5 rounded-md mt-5 w-[60%] "
                         onClick={() => {
                           handleReviewFormSubmit();
                         }}
@@ -635,7 +636,7 @@ const SingleHostelPage = () => {
           </div>
 
           <div className="text-[2rem] mt-[3rem] font-semibold">
-            <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
+            <h1 className="text-3xl ms-[1rem] text-center">Featured Hostels</h1>
             <HomeSwapper />
           </div>
         </main>

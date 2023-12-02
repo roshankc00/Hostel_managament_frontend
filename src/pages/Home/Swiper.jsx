@@ -28,7 +28,7 @@ const HomeSwapper = () => {
       // install Swiper modules
       className="mt-10 pb-4"
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={1}
+      spaceBetween={20}
       breakpoints={{
         1480: {
           slidesPerView: 4,

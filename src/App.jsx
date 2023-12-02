@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import React, { lazy, Suspense } from "react";
-import { Spin } from "antd";
+import React, { lazy, Suspense, useEffect } from "react";
+import Spin from "./components/Spiner";
+import NotFoundPage from "./pages/NotFoundPage";
 const Home = lazy(() => import("./pages/Home"));
 const SignUp = lazy(() => import("./pages/signup"));
 const SignIn = lazy(() => import("./pages/signin"));
@@ -40,10 +41,22 @@ const HostelOwnerRoute = lazy(() => import("./secure_routes/admin.only.route"));
 const SecureRoute = lazy(() => import("./secure_routes/SecureRoute"));
 
 function App() {
+  console.log = console.warn = console.error = () => {};
+  useEffect(() => {
+    const handleContextmenu = (e) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextmenu);
+    return function cleanup() {
+      document.removeEventListener("contextmenu", handleContextmenu);
+    };
+  }, []);
+
   return (
     <div className="">
       <Suspense fallback={<Spin />}>
         <Routes>
+          {/* normal user route starts */}
           <Route path="/" element={<Navbar />}>
             <Route path="/" element={<Home />} />
             <Route path="/hostels" element={<Hostels />} />
@@ -61,6 +74,7 @@ function App() {
             </Route>
             <Route path="/search/:keyword" element={<Search />} />
           </Route>
+          {/* normal user route ends */}
 
           {/* superadmin Route start */}
           <Route path="/" element={<SuperAdminSidebar />}>
@@ -78,7 +92,6 @@ function App() {
               <Route path="/superadmin/createFaq" element={<CreateFaq />} />
             </Route>
           </Route>
-
           {/* superadmin Route ends */}
 
           {/* admin route starts */}
@@ -98,8 +111,8 @@ function App() {
               />
             </Route>
           </Route>
-
           {/* admin route ends */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </div>

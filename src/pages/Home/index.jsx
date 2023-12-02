@@ -52,8 +52,9 @@ const Home = () => {
       <LandingPage />
       <div className="text-[2rem] mt-[3rem] font-semibold">
         <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
-        <Swiper />
       </div>
+
+      <Swiper />
 
       <div className="px-5 md:px-10 lg:px-20">
         {accordions && (
