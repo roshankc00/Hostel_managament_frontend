@@ -2,44 +2,47 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import React, { lazy, Suspense } from "react";
+import { Spin } from "antd";
 const Home = lazy(() => import("./pages/Home"));
-import SignUp from "./pages/signup";
-import SignIn from "./pages/signin";
-import Navbar from "./components/Navbar";
-import Hostels from "./pages/Hostels";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import SingleHostelPage from "./pages/SingleHostelPage";
-import HostelLocation from "./pages/AdminDashboard/HostelLocation";
-import RegisterHotel from "./pages/Register";
-import SuperAdminSidebar from "./components/SideBar";
-import AllUsers from "./pages/AllUsers";
-import AllFaqs from "./pages/AllFaq";
-import AllHostels from "./pages/AllHostels";
-import AllOrders from "./pages/AllOrders";
-import AllUsersResponses from "./pages/UserResponses";
-import Setting from "./pages/Setting";
-import UpdateFaq from "./components/forms/UpdateFaqs";
-import CreateFaq from "./components/forms/AddFaqs";
-import Verification from "./pages/VerifyToken";
-import BookForm from "./components/forms/BookForm";
-import SideBarAdmin from "./pages/AdminDashboard/SideBar";
-import FoodRoutine from "./pages/AdminDashboard/FoodRoutine";
-import Search from "./pages/Search";
-import Rules from "./pages/AdminDashboard/Rules";
-import HostelImages from "./pages/AdminDashboard/HostelImages";
-import RoomCategory from "./pages/AdminDashboard/RoomCategory";
-import RoomsForm from "./components/forms/RoomsForm";
-import AdminOrders from "./pages/AdminDashboard/orders";
-import EditRoomForm from "./components/forms/EditRooms";
-import SuperAdminRoute from "./secure_routes/superAdmin.route";
-import HostelOwnerRoute from "./secure_routes/admin.only.route";
-import SecureRoute from "./secure_routes/SecureRoute";
+const SignUp = lazy(() => import("./pages/signup"));
+const SignIn = lazy(() => import("./pages/signin"));
+const Navbar = lazy(() => import("./components/Navbar"));
+const Hostels = lazy(() => import("./pages/Hostels"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const ContactUs = lazy(() => import("./pages/ContactUs"));
+const SingleHostelPage = lazy(() => import("./pages/SingleHostelPage"));
+const HostelLocation = lazy(() =>
+  import("./pages/AdminDashboard/HostelLocation")
+);
+const RegisterHotel = lazy(() => import("./pages/Register"));
+const SuperAdminSidebar = lazy(() => import("./components/SideBar"));
+const AllUsers = lazy(() => import("./pages/AllUsers"));
+const AllFaqs = lazy(() => import("./pages/AllFaq"));
+const AllHostels = lazy(() => import("./pages/AllHostels"));
+const AllOrders = lazy(() => import("./pages/AllOrders"));
+const AllUsersResponses = lazy(() => import("./pages/UserResponses"));
+const Setting = lazy(() => import("./pages/Setting"));
+const UpdateFaq = lazy(() => import("./components/forms/UpdateFaqs"));
+const CreateFaq = lazy(() => import("./components/forms/AddFaqs"));
+const Verification = lazy(() => import("./pages/VerifyToken"));
+const BookForm = lazy(() => import("./components/forms/BookForm"));
+const SideBarAdmin = lazy(() => import("./pages/AdminDashboard/SideBar"));
+const FoodRoutine = lazy(() => import("./pages/AdminDashboard/FoodRoutine"));
+const Search = lazy(() => import("./pages/Search"));
+const Rules = lazy(() => import("./pages/AdminDashboard/Rules"));
+const HostelImages = lazy(() => import("./pages/AdminDashboard/HostelImages"));
+const RoomCategory = lazy(() => import("./pages/AdminDashboard/RoomCategory"));
+const RoomsForm = lazy(() => import("./components/forms/RoomsForm"));
+const AdminOrders = lazy(() => import("./pages/AdminDashboard/orders"));
+const EditRoomForm = lazy(() => import("./components/forms/EditRooms"));
+const SuperAdminRoute = lazy(() => import("./secure_routes/superAdmin.route"));
+const HostelOwnerRoute = lazy(() => import("./secure_routes/admin.only.route"));
+const SecureRoute = lazy(() => import("./secure_routes/SecureRoute"));
 
 function App() {
   return (
     <div className="">
-      <Suspense fallback={<h1> Loading</h1>}>
+      <Suspense fallback={<Spin />}>
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route path="/" element={<Home />} />
