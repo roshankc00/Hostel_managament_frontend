@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { string, number } from "prop-types";
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ name, location, rating = 3, noOfReviews = 0, id }) => {
+const Card = ({ name, location, rating, noOfReviews, id, image }) => {
   const navigate = useNavigate();
 
   function get_rating_color(rating) {
@@ -30,7 +30,7 @@ const Card = ({ name, location, rating = 3, noOfReviews = 0, id }) => {
               rating
             )} mr-2 p-1 rounded-md text-white`}
           >
-            <span>{rating.toFixed(2)}</span>
+            <span>{rating?.toFixed(2)}</span>
             <span className="ml-2">&#9733;</span>
           </span>
           ({noOfReviews} reviews)

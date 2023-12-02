@@ -3,12 +3,16 @@ import Footer from "../../components/Footer";
 import Accordion from "./FaqSection/Accordion";
 import { getDataWithoutHeader } from "../../services/axios.service";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+
 import WhyUs from "./Why Us";
 import LandingPage from "../../components/LandingPage";
 import SearchBar from "../../components/SearchBar";
 import Nearby from "../../components/Nearby";
-
+import Cookies from "js-cookie";
+import { logedin } from "../signin/auth.slice.js";
 const Home = () => {
+  const dispatch = useDispatch();
   const [accordions, setAccordions] = useState([]);
 
   const getApiFaqData = async () => {
@@ -19,11 +23,18 @@ const Home = () => {
     });
     console.log(datas);
     setAccordions(datas);
+    const role = Cookies.get("role");
+    const token = Cookies.get("jwtToken");
+    const userId = Cookies.get("UserId");
+    const isLoginStatus = Cookies.get("isLoggedIn");
+    if (role && token && userId && isLoginStatus) {
+      dispatch(logedin({ role, token, userId, isLoginStatus }));
+    }
   };
-
   useEffect(() => {
     getApiFaqData();
   }, []);
+
   const toggleAccordion = (accordionId) => {
     console.log(accordionId);
     if (accordions) {
@@ -41,9 +52,8 @@ const Home = () => {
       <LandingPage />
       <div className="text-[2rem] mt-[3rem] font-semibold">
         <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
+        <Swiper />
       </div>
-
-      <Swiper />
 
       <div className="px-5 md:px-10 lg:px-20">
         {accordions && (

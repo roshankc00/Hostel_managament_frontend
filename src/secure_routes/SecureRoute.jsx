@@ -1,20 +1,13 @@
-import { useSelector } from "react-redux"
-import { Navigate, Outlet } from "react-router-dom"
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
 const SecureRoute = () => {
-    const user=useSelector((state)=>{
-        return state.auth
-      })
+  const user = useSelector((state) => {
+    return state.auth;
+  });
   return (
-    <div>
-        {
-            user.isLoggedIn?<Outlet/>:<Navigate to={'/'} />
-        }
-    </div>
-  )
-}
+    <div>{user.isLogedInStatus ? <Outlet /> : <Navigate to={"/signin"} />}</div>
+  );
+};
 
-export default SecureRoute 
-
-
-
+export default SecureRoute;

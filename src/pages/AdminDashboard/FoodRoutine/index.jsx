@@ -19,9 +19,7 @@ const FoodRoutine = () => {
   const [allFood, setallFood] = useState([]);
   const [category, setCategory] = useState("");
   const [updateId, setUpdateId] = useState("");
-  const { token } = useSelector((state) => state.auth);
-
-  const hostelId = "65350ac7d1df3a00f85edea2";
+  const { token, hostelId } = useSelector((state) => state.auth);
 
   // get hostel details
   const getAllFoodItems = async () => {

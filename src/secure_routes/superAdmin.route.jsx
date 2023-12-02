@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-const HostelOwnerRoute = () => {
+const SuperAdminRoute = () => {
   const role = useSelector((state) => {
     return state.auth.role;
   });
   console.log(role);
-  return <div>{role === "owner" ? <Outlet /> : <Navigate to={"/"} />}</div>;
+  return (
+    <div>{role === "superAdmin" ? <Outlet /> : <Navigate to={"/"} />}</div>
+  );
 };
 
-export default HostelOwnerRoute;
+export default SuperAdminRoute;

@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { object, string } from "yup";
+import { number, object, string } from "yup";
 import styles from "./rooms.module.css";
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
@@ -36,12 +36,16 @@ const RoomsForm = () => {
     name: "",
     price: "",
     description: "",
+    totalRooms: "",
+    totalVacentRooms: "",
   };
 
   const validationSchema = object().shape({
     name: string().required("Name is required"),
     price: string().required("Price is required"),
     description: string().required("Description is required"),
+    totalVacentRooms: number().required("Total vacent room field is requried"),
+    totalRooms: number().required("Total  rooms field is requried"),
   });
 
   const handleSubmit = async (values) => {
@@ -54,6 +58,8 @@ const RoomsForm = () => {
     formData.append("name", values.name);
     formData.append("price", values.price);
     formData.append("description", values.description);
+    formData.append("totalRooms", values.totalRooms);
+    formData.append("totalVacentRooms", values.totalVacentRooms);
     formData.append("hostelId", hostelId);
     formData.append("image", image);
     const response = await postDataWithHeader("room-hostel", formData, token);
@@ -154,6 +160,40 @@ const RoomsForm = () => {
                   />
                 </div>
               )}
+
+              <div className="mb-4 relative w-full">
+                <Field
+                  placeholder=""
+                  type="number"
+                  name="totalRooms"
+                  className={`w-full input`}
+                ></Field>
+                <label className={`label`} htmlFor="totalRooms">
+                  TotalRooms
+                </label>
+                <ErrorMessage
+                  component="div"
+                  name="totalRooms"
+                  className="text-red-500 absolute text-xs bottom-[-5px]"
+                />
+              </div>
+
+              <div className="mb-4 relative w-full">
+                <Field
+                  placeholder=""
+                  type="text"
+                  name="totalVacentRooms"
+                  className={`w-full input`}
+                ></Field>
+                <label className={`label`} htmlFor="totalVacentRooms">
+                  Total Vacent Rooms
+                </label>
+                <ErrorMessage
+                  component="div"
+                  name="totalVacentRooms"
+                  className="text-red-500 absolute text-xs bottom-[-5px]"
+                />
+              </div>
 
               <button
                 type="submit"

@@ -11,15 +11,14 @@ import {
   updateDataWithHeader,
 } from "../../../services/axios.service";
 import { Button } from "@mui/material";
-import { successToast } from "../../../services/toastify.service";
+import { errorToast, successToast } from "../../../services/toastify.service";
 
 const Rules = () => {
   const [showForm, setShowForm] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
   const [updateId, setUpdateId] = useState("");
   const [allRules, setAllRules] = useState([]);
-  const { token } = useSelector((state) => state.auth);
-  const hostelId = "65350ac7d1df3a00f85edea2";
+  const { token, hostelId } = useSelector((state) => state.auth);
 
   // Formik Validation
   const initialValue = {
@@ -45,6 +44,7 @@ const Rules = () => {
   }, []);
 
   const handleSubmit = async (values) => {
+    console.log(values);
     const response = await postDataWithHeader(
       "rules",
       { title: values.title, hostelId },
@@ -55,6 +55,11 @@ const Rules = () => {
       setShowForm(false);
       successToast(
         response.message ? response.message : "Rule added successfully!"
+      );
+    } else {
+      setShowForm(false);
+      errorToast(
+        response.message ? response.message : "Unable to add the Rule !"
       );
     }
   };
@@ -118,7 +123,7 @@ const Rules = () => {
             allRules.map((rule) => {
               return (
                 <div
-                  key={rule._id}
+                  key={rule?._id}
                   className="border-2 shadow-xl flex items-center justify-between px-8 py-4 rounded-lg gap-2"
                 >
                   <p>{rule?.title}</p>

@@ -51,7 +51,7 @@ const Nearby = () => {
       {isLoaded ? (
         <div>
           <h1 className="text-center text-3xl font-semibold mb-4">
-            Nearby Hostels
+            Hostels Near Me
           </h1>
           <GoogleMap
             key={12}

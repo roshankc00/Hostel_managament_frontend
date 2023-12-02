@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <main className="mx-auto flex items-center justify-center md:block ">
       <div className="flex flex-center justify-between mx-6 gap-4 md:flex-row flex-col-reverse">
@@ -12,8 +15,11 @@ const LandingPage = () => {
             This is the only place you&apos;ll have to visit{" "}
             <span className="text-xl">to find and create your own hostel.</span>
           </p>
-          <button className="bg-[#4869c6] w-[8rem] flex justify-center rounded-lg text-white py-[0.5rem] mx-auto md:mx-0">
-            Get Started!
+          <button
+            className="bg-[#4869c6] w-[8rem] flex justify-center rounded-lg text-white py-[0.5rem] mx-auto md:mx-0"
+            onClick={() => navigate("/hostels")}
+          >
+            Find Hostel !
           </button>
         </div>
 

@@ -23,6 +23,11 @@ const SideBarAdmin = () => {
       icon: <LuLayoutDashboard />,
     },
     {
+      name: "Orders",
+      link: "admin/orders",
+      icon: <LuLayoutDashboard />,
+    },
+    {
       name: "Location",
       link: "admin/location",
       icon: <FiSettings />,
@@ -67,7 +72,7 @@ const SideBarAdmin = () => {
     <div>
       <div className="left">
         <div
-          className={`sidebar-z-index md:w-[20rem] h-[50rem] top-0 rounded-tr-lg rounded-tb-lg left-0 fixed bg-[#3140b6] z-100 text-white flex items-center flex-col w-[10rem] ease-in-out duration-300 ${
+          className={`sidebar-z-index md:w-[20rem] h-[57rem] top-0 rounded-tr-[50px] rounded-br-[50px] left-0 fixed bg-[#3140b6] z-100 text-white flex items-center flex-col w-[10rem] ease-in-out duration-300 ${
             !show && "left-[-10rem] "
           } `}
         >
@@ -75,7 +80,7 @@ const SideBarAdmin = () => {
             DashBoard
           </div>
 
-          <div className="mt-10 w-full flex flex-col">
+          <div className="mt-10 w-full flex flex-col ">
             {sideIcons &&
               sideIcons.map((e) => {
                 return e.name !== "Logout" ? (

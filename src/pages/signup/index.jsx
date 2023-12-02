@@ -10,14 +10,12 @@ const SignUp = () => {
 
   const initialValue = {
     name: "",
-    phone: "",
     email: "",
     password: "",
   };
 
   const validationSchema = object().shape({
     name: string().required("Name field is required"),
-    phone: string().required("Phone field is required"),
     email: string().required("email field is required"),
     password: string()
       .min(6, "password must be of 6 digit")
@@ -97,24 +95,6 @@ const SignUp = () => {
                   </label>
                   <ErrorMessage
                     name="password"
-                    component="div"
-                    className="text-red-500 absolute text-xs bottom-[-5px]"
-                  />
-                </div>
-
-                <div className="mb-4 relative">
-                  <Field
-                    placeholder=""
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    className={`w-full ${styles.input}`}
-                  ></Field>
-                  <label htmlFor="phone" className={`${styles.label}`}>
-                    Phone
-                  </label>
-                  <ErrorMessage
-                    name="phone"
                     component="div"
                     className="text-red-500 absolute text-xs bottom-[-5px]"
                   />

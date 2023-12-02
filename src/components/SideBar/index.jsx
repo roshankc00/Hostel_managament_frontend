@@ -35,7 +35,7 @@ const SuperAdminSidebar = () => {
     successToast("User logout successfully");
   };
   return (
-    <section className="flex gap-6 bg-white">
+    <section className="flex gap-6 bg-white ">
       <div
         className={`bg-[#0e0e0e] min-h-screen ${
           open ? "w-72" : "w-16"
@@ -58,7 +58,7 @@ const SuperAdminSidebar = () => {
                     key={i}
                     className={` ${
                       menu?.margin && "mt-5"
-                    } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
+                    } group flex  items-center text-sm  gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
                   >
                     <div>{React.createElement(menu?.icon, { size: "20" })}</div>
                     <h2

@@ -10,7 +10,7 @@ import { successToast } from "../../../services/toastify.service";
 const HostelLocation = () => {
   const [editForm, setEditForm] = useState(false);
   const [details, setDetails] = useState({});
-  const { token } = useSelector((state) => state.auth);
+  const { token, hostelId } = useSelector((state) => state.auth);
 
   // Get hostel Details
   const getHostelDetails = async (id) => {
@@ -20,7 +20,7 @@ const HostelLocation = () => {
     setDetails(response);
   };
   useState(() => {
-    getHostelDetails("65350ac7d1df3a00f85edea2");
+    getHostelDetails(hostelId);
   }, []);
 
   // Edit hostel details
@@ -35,7 +35,7 @@ const HostelLocation = () => {
       },
     };
     const response = await updateDataWithHeader(
-      `hostels/65350ac7d1df3a00f85edea2`,
+      `hostels/${hostelId}`,
       updateData,
       token
     );

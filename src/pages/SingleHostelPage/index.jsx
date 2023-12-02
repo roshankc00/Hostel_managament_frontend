@@ -25,6 +25,7 @@ import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Map from "./Map";
 import RoomCategory from "./roomCategory";
+import HomeSwapper from "../Home/Swiper";
 
 const SingleHostelPage = () => {
   const { token, isLogedInStatus, userId } = useSelector((state) => state.auth);
@@ -633,8 +634,9 @@ const SingleHostelPage = () => {
             </div>
           </div>
 
-          <div>
-            <SimilarHostels />
+          <div className="text-[2rem] mt-[3rem] font-semibold">
+            <h1 className="text-3xl ms-[1rem]">Featured Hostels</h1>
+            <HomeSwapper />
           </div>
         </main>
       )}

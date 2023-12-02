@@ -27,18 +27,28 @@ const SignIn = () => {
   const handleSubmit = async (values) => {
     console.log(values);
     const response = await addData("users/login", values);
+    console.log(response);
 
     if (response.success) {
       const data = {
         token: response.token,
         role: response.role,
         userId: response.userId,
+        hostelId: response.hostelId ? response.hostelId : "",
       };
       dispatch(logedin(data));
       successToast(
         response.message ? response.message : "User logged in sucessfully"
       );
-      navigate("/");
+      if (response.role === "superAdmin") {
+        navigate("/superadmin/hostels");
+        return;
+      }
+      if (response.hostelId) {
+        navigate("/admin/foods");
+      } else {
+        navigate("/");
+      }
     } else {
       errorToast(
         response.message ? response.message : "Unable to logged in the user"
