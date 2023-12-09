@@ -53,7 +53,7 @@ const ChangePassword = () => {
               <div className="mb-4">
                 <label htmlFor="oldPassword">Old Password:</label>
                 <Field
-                  type="text"
+                  type="password"
                   name="oldPassword"
                   className="mb-2 p-2 w-full border"
                 ></Field>
@@ -66,7 +66,7 @@ const ChangePassword = () => {
               <div className="mb-4">
                 <label htmlFor="newPassword">New Password:</label>
                 <Field
-                  type="text"
+                  type="password"
                   name="newPassword"
                   className="mb-4 p-2 w-full border"
                 ></Field>

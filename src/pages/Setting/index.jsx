@@ -21,13 +21,13 @@ const Setting = () => {
   const handleClosePassword = () => setopenPassword(false);
   const getUserInfo = async () => {
     const response = await getDataWithoutHeader(`users/${userId}`);
-    if (response.success) {
+    if (response?.success) {
       setcurrent_user_info(response.user);
     }
   };
   useEffect(() => {
     getUserInfo();
-  });
+  }, []);
 
   return (
     <div className="flex justify-end  px-5 ">

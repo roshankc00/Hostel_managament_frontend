@@ -5,12 +5,15 @@ import { useState } from "react";
 import styles from "./location.module.css";
 import { useSelector } from "react-redux";
 import { getData, updateDataWithHeader } from "../../../services/axios.service";
-import { successToast } from "../../../services/toastify.service";
+import { errorToast, successToast } from "../../../services/toastify.service";
+import { Button } from "@mui/material";
 
 const HostelLocation = () => {
+  const [CurrentLocation, setCurrentLocation] = useState({});
   const [editForm, setEditForm] = useState(false);
   const [details, setDetails] = useState({});
   const { token, hostelId } = useSelector((state) => state.auth);
+  const [showAutoGroButton, setshowAutoGroButton] = useState(true);
 
   // Get hostel Details
   const getHostelDetails = async (id) => {
@@ -20,6 +23,12 @@ const HostelLocation = () => {
     setDetails(response);
   };
   useState(() => {
+    navigator.geolocation.getCurrentPosition((location) => {
+      setCurrentLocation({
+        lat: Number(location.coords.latitude),
+        lng: Number(location.coords.longitude),
+      });
+    });
     getHostelDetails(hostelId);
   }, []);
 
@@ -95,6 +104,7 @@ const HostelLocation = () => {
               <p>{details?.hostel?.location?.localLocation}</p>
               <hr className="my-2" />
             </div>
+
             <div className="m-4 flex">
               <button
                 className="text-white mx-auto px-8 py-2 bg-[#2563eb] rounded-[5rem] hover:bg-[#2a55b3]"
@@ -137,7 +147,7 @@ const HostelLocation = () => {
                   validationSchema={validationSchema}
                   onSubmit={editHostelDetails}
                 >
-                  {({ values, isSubmitting }) => {
+                  {({ values, isSubmitting, setFieldValue }) => {
                     return (
                       <Form className="w-[80%]">
                         <div className="mb-2 relative w-full">
@@ -160,6 +170,37 @@ const HostelLocation = () => {
                             className="text-red-500 absolute text-xs bottom-[-15px]"
                           />
                         </div>
+                        {showAutoGroButton &&
+                          !values.latitude &&
+                          !values.longitude && (
+                            <Button
+                              variant="contained"
+                              onClick={() => {
+                                if (
+                                  CurrentLocation.lng &&
+                                  CurrentLocation.lat
+                                ) {
+                                  setFieldValue(
+                                    "longitude",
+                                    CurrentLocation.lng
+                                  );
+                                  setFieldValue(
+                                    "latitude",
+                                    CurrentLocation.lat
+                                  );
+                                } else {
+                                  errorToast(
+                                    "Geolocation is not supported by this browser."
+                                  );
+                                }
+                                setshowAutoGroButton(false);
+                              }}
+                            >
+                              {" "}
+                              Allow current Location
+                            </Button>
+                          )}
+
                         <div className="mb-2 relative w-full">
                           <label className="block  mb-2" htmlFor="longitude">
                             Longitude:
@@ -194,7 +235,7 @@ const HostelLocation = () => {
                         </div>
                         <div className="mb-2 relative">
                           <label className="block mb-2" htmlFor="city">
-                            Lity:
+                            City:
                           </label>
                           <Field
                             type="text"

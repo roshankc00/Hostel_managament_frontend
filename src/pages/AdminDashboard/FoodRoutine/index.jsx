@@ -59,7 +59,7 @@ const FoodRoutine = () => {
     const response = await postDataWithHeader("time", data, token);
     console.log(response, "create time response");
     if (response.success) {
-      allFood.push(response.times);
+      allFood.push(response.timeShedule);
       setShowForm(false);
       successToast(response.message);
     }
@@ -131,7 +131,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "sunday") {
+              if (food?.category === "sunday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
@@ -176,7 +176,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "monday") {
+              if (food?.category === "monday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
@@ -221,7 +221,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "tuesday") {
+              if (food?.category === "tuesday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
@@ -266,7 +266,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "wednesday") {
+              if (food?.category === "wednesday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
@@ -311,7 +311,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "thursday") {
+              if (food?.category === "thursday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
@@ -356,7 +356,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "friday") {
+              if (food?.category === "friday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />
@@ -401,7 +401,7 @@ const FoodRoutine = () => {
           </div>
           {allFood &&
             allFood.map((food) => {
-              if (food.category === "saturday") {
+              if (food?.category === "saturday") {
                 return (
                   <div key={food._id} className="relative">
                     <hr className="m-2" />

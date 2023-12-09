@@ -36,16 +36,16 @@ const RoomsForm = () => {
     name: "",
     price: "",
     description: "",
-    totalRooms: "",
-    totalVacentRooms: "",
+    totalSeats: "",
+    totalVacentSeats: "",
   };
 
   const validationSchema = object().shape({
     name: string().required("Name is required"),
     price: string().required("Price is required"),
     description: string().required("Description is required"),
-    totalVacentRooms: number().required("Total vacent room field is requried"),
-    totalRooms: number().required("Total  rooms field is requried"),
+    totalVacentSeats: number().required("Total vacent room field is requried"),
+    totalSeats: number().required("Total  rooms field is requried"),
   });
 
   const handleSubmit = async (values) => {
@@ -58,8 +58,8 @@ const RoomsForm = () => {
     formData.append("name", values.name);
     formData.append("price", values.price);
     formData.append("description", values.description);
-    formData.append("totalRooms", values.totalRooms);
-    formData.append("totalVacentRooms", values.totalVacentRooms);
+    formData.append("totalSeats", values.totalSeats);
+    formData.append("totalVacentSeats", values.totalVacentSeats);
     formData.append("hostelId", hostelId);
     formData.append("image", image);
     const response = await postDataWithHeader("room-hostel", formData, token);
@@ -162,35 +162,37 @@ const RoomsForm = () => {
               )}
 
               <div className="mb-4 relative w-full">
+                <label className={`label`} htmlFor="totalSeats">
+                  totalSeats
+                </label>
                 <Field
                   placeholder=""
                   type="number"
-                  name="totalRooms"
-                  className={`w-full input`}
+                  name="totalSeats"
+                  className={`w-full border border-gray-400 p-2 rounded-md mb-3`}
                 ></Field>
-                <label className={`label`} htmlFor="totalRooms">
-                  TotalRooms
-                </label>
+
                 <ErrorMessage
                   component="div"
-                  name="totalRooms"
-                  className="text-red-500 absolute text-xs bottom-[-5px]"
+                  name="totalSeats"
+                  className="text-red-500 absolute text-xs bottom-[-5px] mt-3"
                 />
               </div>
 
               <div className="mb-4 relative w-full">
+                <label className={`label`} htmlFor="totalVacentSeats">
+                  Total Vacent Rooms
+                </label>
                 <Field
                   placeholder=""
                   type="text"
-                  name="totalVacentRooms"
-                  className={`w-full input`}
+                  name="totalVacentSeats"
+                  className={`w-full border border-gray-400 p-2 rounded-md mb-3`}
                 ></Field>
-                <label className={`label`} htmlFor="totalVacentRooms">
-                  Total Vacent Rooms
-                </label>
+
                 <ErrorMessage
                   component="div"
-                  name="totalVacentRooms"
+                  name="totalVacentSeats"
                   className="text-red-500 absolute text-xs bottom-[-5px]"
                 />
               </div>

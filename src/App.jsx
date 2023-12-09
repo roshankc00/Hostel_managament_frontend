@@ -3,7 +3,12 @@ import "./App.css";
 
 import React, { lazy, Suspense, useEffect } from "react";
 import Spin from "./components/Spiner";
-import NotFoundPage from "./pages/NotFoundPage";
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+
+const AddVerificationCertificate = lazy(() =>
+  import("./pages/AdminDashboard/AddverificationCertificate")
+);
+const ForgetPassword = lazy(() => import("./components/forms/ForgetPassword"));
 const Home = lazy(() => import("./pages/Home"));
 const SignUp = lazy(() => import("./pages/signup"));
 const SignIn = lazy(() => import("./pages/signin"));
@@ -41,7 +46,7 @@ const HostelOwnerRoute = lazy(() => import("./secure_routes/admin.only.route"));
 const SecureRoute = lazy(() => import("./secure_routes/SecureRoute"));
 
 function App() {
-  console.log = console.warn = console.error = () => {};
+  // console.log = console.warn = console.error = () => {};
   useEffect(() => {
     const handleContextmenu = (e) => {
       e.preventDefault();
@@ -68,6 +73,7 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/verify" element={<Verification />} />
             <Route path="/hostel-register" element={<RegisterHotel />} />
+            <Route path="/forget-password" element={<ForgetPassword />} />
 
             <Route path="/" element={<SecureRoute />}>
               <Route path="/orders/:id" element={<BookForm />} />
@@ -98,6 +104,10 @@ function App() {
           <Route path="/" element={<HostelOwnerRoute />}>
             <Route path="/" element={<SideBarAdmin />}>
               <Route path="/admin/location" element={<HostelLocation />} />
+              <Route
+                path="/admin/addCertificate"
+                element={<AddVerificationCertificate />}
+              />
               <Route path="/admin/foods" element={<FoodRoutine />} />
               <Route path="/admin/settings" element={<Setting />} />
               <Route path="/admin/rules" element={<Rules />} />

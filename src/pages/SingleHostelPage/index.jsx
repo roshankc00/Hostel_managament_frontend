@@ -50,7 +50,6 @@ const SingleHostelPage = () => {
   const handleClose = () => setOpen(false);
 
   const { id } = useParams();
-  const hostelId = "65350ac7d1df3a00f85edea2";
 
   const getSingleHostel = async () => {
     const response = await getData(`hostels/${id}`);
@@ -175,7 +174,7 @@ const SingleHostelPage = () => {
   const getRules = async () => {
     const response = await postDataWithHeader(
       "rules-hostel",
-      { hostelId },
+      { hostelId: id },
       token
     );
     console.log(response, "getrules");
@@ -247,6 +246,9 @@ const SingleHostelPage = () => {
                           description={room?.description}
                           price={room?.price}
                           image={room?.image}
+                          totalVacentSeats={room?.totalVacentSeats}
+                          totalSeats={room?.totalSeats}
+                          roomId={room?._id}
                         />
                       </div>
                     );

@@ -23,6 +23,11 @@ const SideBarAdmin = () => {
       icon: <LuLayoutDashboard />,
     },
     {
+      name: "Add Certificate",
+      link: "admin/addCertificate",
+      icon: <LuLayoutDashboard />,
+    },
+    {
       name: "Orders",
       link: "admin/orders",
       icon: <LuLayoutDashboard />,
@@ -76,11 +81,11 @@ const SideBarAdmin = () => {
             !show && "left-[-10rem] "
           } `}
         >
-          <div className="mt-10 md:text-3xl font-semibold text-[1.4rem]">
+          <div className="mb-5 mt-2 md:text-3xl font-semibold text-[1.4rem]">
             DashBoard
           </div>
 
-          <div className="mt-10 w-full flex flex-col ">
+          <div className="mt-[-10px] w-full flex flex-col ">
             {sideIcons &&
               sideIcons.map((e) => {
                 return e.name !== "Logout" ? (

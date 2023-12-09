@@ -16,7 +16,7 @@ const Nearby = () => {
   // const lon = 32;
   // const lat = 32;
 
-  const [currentLocation, setCurrentLocation] = useState();
+  const [currentLocation, setCurrentLocation] = useState({});
   const options = {
     mapTypeControl: false,
     streetViewControl: false,
@@ -43,7 +43,7 @@ const Nearby = () => {
     console.log(hostels);
     getHostels();
   }, []);
-
+  console.log(currentLocation, "wow jii");
   return (
     <div className="mb-8">
       {selectedMarker && selectedMarker.name}

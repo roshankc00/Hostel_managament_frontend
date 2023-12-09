@@ -20,7 +20,7 @@ function AboutUsSection() {
         />
       </div>
       <h1 className="text-center text-[25px] font-[600]  md:font-[400] md:text-[50px] md:mt-[-2.4em] mt-[-1.5em]">
-        Native Plug pvt. ltd
+        Khojdau
       </h1>
       <div className={styles.aboutUsSection}>
         <div className={styles.about}>
@@ -39,35 +39,43 @@ function AboutUsSection() {
         <div className={styles.vision}>
           <h2 className="text-center font-normal text-4xl">Our Vision</h2>
           <p className="my-6 text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est,
-            incidunt voluptates cum odio vel impedit obcaecati aliquid hic
-            aspernatur reiciendis minus laborum inventore modi accusantium esse.
-            Id eius vitae perspiciatis a aliquam minima adipisci cupiditate hic,
-            ea pariatur velit quod doloribus corporis sit, mollitia dolore,
-            maxime blanditiis quibusdam amet. Quo animi optio nesciunt tempora
-            enim, aperiam praesentium velit inventore unde nam sapiente id saepe
-            esse autem modi quis quos pariatur! Expedita cupiditate doloremque
-            asperiores repellat eaque quibusdam perspiciatis. Asperiores facere,
-            omnis hic mollitia maiores at fugit, obcaecati aliquid quis,
-            suscipit voluptatem odio voluptatum voluptas animi delectus expedita
-            voluptates magnam accusamus.{" "}
+            In today's fast-paced world, finding accommodation becomes a
+            daunting task, especially in densely populated cities like Kathmandu
+            Valley. Even prominent figures, with extensive networks, face
+            challenges in locating suitable places to stay, as highlighted in
+            various news articles. This struggle extends to the general public,
+            including students and employees, who face time constraints. This
+            predicament has fueled the brokerage industry, which has grown
+            significantly. However, in this age of information technology, where
+            internet penetration is substantial in Nepal, this issue is
+            solvable. Our vision is to create a platform that directly connects
+            customers with owners, eliminating the need for intermediaries and
+            putting an end to the brokerage industry. Simultaneously, we aim to
+            provide an exceptional experience to our users, allowing them to
+            explore accommodations online as if they were physically visiting
+            the sites. Central to our mission is the utmost priority placed on
+            preventing fraud, ensuring a secure and trustworthy platform for
+            all.
           </p>
         </div>
         <div className={styles.mission}>
           <h2 className="text-center font-normal text-4xl">Our Mission</h2>
           <p className="my-6 text-justify">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
-            facilis quasi iusto eius ea neque aspernatur. Ex sapiente iusto
-            accusantium voluptatibus soluta ullam corrupti. Inventore tempore
-            illum praesentium a eaque totam et eveniet accusamus omnis, rem
-            expedita unde distinctio consectetur, tenetur amet ipsum quibusdam
-            alias voluptates velit odit quidem. Quae similique, distinctio a id
-            molestias quisquam itaque nesciunt laudantium blanditiis dolorum
-            repellendus impedit cum assumenda eum nisi vel inventore ad
-            laboriosam? A doloremque quam asperiores repudiandae beatae. Nam
-            tempore, id sunt recusandae quisquam soluta blanditiis ratione.
-            Optio ipsam quam eius, minima sint asperiores perspiciatis veniam
-            reprehenderit rerum recusandae nobis veritatis.
+            Our mission at our platform is to revolutionize the hostel-seeking
+            experience in Kathmandu Valley. Initially servicing specific
+            locations due to resource limitations, we're committed to extending
+            our reach across the entirety of the valley. Our goal is to
+            alleviate the confusion faced by visitors when seeking
+            accommodations in the capital city. By providing a platform for
+            hostels to register and showcase individual rooms with authentic
+            photos, we aim to empower our audience to explore and directly book
+            accommodations without intermediaries. Ensuring genuine and reliable
+            information is crucial; thus, any fraudulent data uploaded by hostel
+            owners will face serious consequences as we prioritize authenticity.
+            While we don't facilitate monetary transactions, our platform's
+            primary focus is to connect audiences with hostel owners, offering a
+            transparent and trustworthy interface for seamless hostel
+            exploration and booking.
           </p>
         </div>
       </div>

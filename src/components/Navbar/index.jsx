@@ -11,15 +11,15 @@ import { successToast } from "../../services/toastify.service";
 const Navbar = () => {
   const [showHamburger, setShowHamburger] = useState(false);
   const [showLogoutAndSetting, setshowLogoutAndSetting] = useState(false);
-  const { isLogedInStatus } = useSelector((state) => state.auth);
+  const { isLogedInStatus, role } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
     <main className="relative">
       <div className={styles.bg}>
         <div className={`${styles.nav_items} h-full mx-auto max-w-[1280px]`}>
-          <NavLink to="/" className={styles.logo}>
-            <h1>Our Hostel</h1>
+          <NavLink to="/" className="text-xl font-bold">
+            <h1>Khojdau</h1>
           </NavLink>
           <ul className="md:flex hidden">
             <li>
@@ -70,7 +70,29 @@ const Navbar = () => {
                   >
                     Logout
                   </button>
+
                   <br />
+                  {role === "owner" && (
+                    <button
+                      className="hover:bg-slate-200 px-2 "
+                      onClick={() => {
+                        navigate("/admin/foods");
+                      }}
+                    >
+                      Dashboard
+                    </button>
+                  )}
+                  <br />
+                  {role === "superAdmin" && (
+                    <button
+                      className="hover:bg-slate-200 px-2 "
+                      onClick={() => {
+                        navigate("/superadmin/hostels");
+                      }}
+                    >
+                      Dashboard
+                    </button>
+                  )}
                 </div>
               )}
             </div>
@@ -105,7 +127,7 @@ const Navbar = () => {
                 <NavLink to="/hostels">Hostels</NavLink>
               </div>
               <div>
-                <NavLink to="/about-us">About</NavLink>
+                <NavLink to="/about-us">About Us</NavLink>
               </div>
               <div>
                 <NavLink to="/contact">Contact</NavLink>
@@ -126,6 +148,7 @@ const Navbar = () => {
                     >
                       <IoPersonCircleSharp size={30} />
                     </button>
+
                     {showLogoutAndSetting && (
                       <div className="bg-white py-3 px-2 ms-[-10px] rounded-md absolute flex flex-col font-semibold text-xl gap-[-20px]">
                         <button
@@ -145,9 +168,26 @@ const Navbar = () => {
                           Logout
                         </button>
                         <br />
-                        <button className="hover:bg-slate-200 px-3">
-                          setting
-                        </button>
+                        {role === "owner" && (
+                          <button
+                            className="hover:bg-slate-200 px-2 "
+                            onClick={() => {
+                              navigate("/admin/foods");
+                            }}
+                          >
+                            Dashboard
+                          </button>
+                        )}
+                        {role === "superAdmin" && (
+                          <button
+                            className="hover:bg-slate-200 px-2 "
+                            onClick={() => {
+                              navigate("/superadmin/hostels");
+                            }}
+                          >
+                            Dashboard
+                          </button>
+                        )}
                       </div>
                     )}
                   </div>

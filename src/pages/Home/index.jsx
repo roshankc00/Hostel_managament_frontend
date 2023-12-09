@@ -56,10 +56,10 @@ const Home = () => {
 
       <Swiper />
 
-      <div className="px-5 md:px-10 lg:px-20">
+      <div className="px-5 md:px-10 lg:px-20 mb-10">
         {accordions && (
           <section>
-            <h1 className="text-3xl my-10 font-semibold">
+            <h1 className="text-3xl my-9 ms-[-30px] font-semibold">
               Frequently Asked Questions
             </h1>
             {accordions.map((accordion) => (

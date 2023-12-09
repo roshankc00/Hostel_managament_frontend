@@ -52,16 +52,16 @@ const EditRoomForm = () => {
     name: "",
     price: "",
     description: "",
-    totalRooms: "",
-    totalVacentRooms: "",
+    totalSeats: "",
+    totalVacentSeats: "",
   };
 
   const validationSchema = object().shape({
     name: string().required("Name is required"),
     price: string().required("Price is required"),
     description: string().required("Description is required"),
-    totalVacentRooms: number().required("Total vacent room field is requried"),
-    totalRooms: number().required("Total  rooms field is requried"),
+    totalVacentSeats: number().required("Total vacent Seats field is requried"),
+    totalSeats: number().required("Total  Seats field is requried"),
   });
 
   const handleSubmit = async (values) => {
@@ -71,8 +71,8 @@ const EditRoomForm = () => {
         formData.append("name", values.name);
         formData.append("price", values.price);
         formData.append("description", values.description);
-        formData.append("totalRooms", values.totalRooms);
-        formData.append("totalVacentRooms", values.totalVacentRooms);
+        formData.append("totalSeats", values.totalSeats);
+        formData.append("totalVacentSeats", values.totalVacentSeats);
         formData.append("uploadImage", true);
         formData.append("image", image);
         const response = await updateDataWithHeader(
@@ -135,8 +135,8 @@ const EditRoomForm = () => {
             name: hostelDetail.room.name,
             price: hostelDetail.room.price,
             description: hostelDetail.room.description,
-            totalRooms: hostelDetail.room.totalRooms,
-            totalVacentRooms: hostelDetail.room.totalVacentRooms,
+            totalSeats: hostelDetail.room.totalSeats,
+            totalVacentSeats: hostelDetail.room.totalVacentSeats,
           }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -237,37 +237,39 @@ const EditRoomForm = () => {
                   </div>
                 )}
                 <div className="mb-4 relative w-full mt-10">
+                  <label className={`label`} htmlFor="totalSeats">
+                    TotalSeats
+                  </label>
                   <Field
                     placeholder=""
                     type="number"
-                    name="totalRooms"
-                    value={values.totalRooms}
+                    name="totalSeats"
+                    value={values.totalSeats}
                     className={`w-full input`}
                   ></Field>
-                  <label className={`label`} htmlFor="totalRooms">
-                    TotalRooms
-                  </label>
+
                   <ErrorMessage
                     component="div"
-                    name="totalRooms"
+                    name="totalSeats"
                     className="text-red-500 absolute text-xs bottom-[-5px]"
                   />
                 </div>
 
                 <div className="mb-4 relative w-full">
+                  <label className={`label`} htmlFor="totalVacentSeats">
+                    Total Vacent Seats
+                  </label>
                   <Field
                     placeholder=""
                     type="number"
-                    name="totalVacentRooms"
-                    value={values.totalVacentRooms}
+                    name="totalVacentSeats"
+                    value={values.totalVacentSeats}
                     className={`w-full input`}
                   ></Field>
-                  <label className={`label`} htmlFor="totalVacentRooms">
-                    Total Vacent Rooms
-                  </label>
+
                   <ErrorMessage
                     component="div"
-                    name="totalVacentRooms"
+                    name="totalVacentSeats"
                     className="text-red-500 absolute text-xs bottom-[-5px]"
                   />
                 </div>

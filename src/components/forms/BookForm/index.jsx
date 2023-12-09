@@ -25,9 +25,8 @@ const BookForm = () => {
       navigate("/signin");
       return;
     } else {
-      const data = { ...values, hostelId: id };
+      const data = { ...values, roomId: id };
       const response = await postDataWithHeader("orders", data, token);
-      console.log(response, "sknsjdnjsdnjsnd");
       if (response.success) {
         successToast("Order placed successfully");
         navigate("/");
@@ -48,31 +47,35 @@ const BookForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleRegisterForm}
       >
-        <Form className="w-[80%]">
-          <div className="mb-4 relative w-full">
-            <Field
-              placeholder=""
-              type="text"
-              name="phone"
-              className={`w-full ${styles.input}`}
-            ></Field>
-            <label htmlFor="phone" className={`${styles.label}`}>
-              Phone
-            </label>
-            <ErrorMessage
-              component="div"
-              name="phone"
-              className="text-red-500 absolute text-xs bottom-[-5px]"
-            />
-          </div>
+        {({ isSubmitting }) => {
+          return (
+            <Form className="w-[80%]">
+              <div className="mb-4 relative w-full">
+                <Field
+                  placeholder=""
+                  type="text"
+                  name="phone"
+                  className={`w-full ${styles.input}`}
+                ></Field>
+                <label htmlFor="phone" className={`${styles.label}`}>
+                  Phone
+                </label>
+                <ErrorMessage
+                  component="div"
+                  name="phone"
+                  className="text-red-500 absolute text-xs bottom-[-5px]"
+                />
+              </div>
 
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-4"
-          >
-            {"Book Now"}
-          </button>
-        </Form>
+              <button
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-600 px-3 py-2 text-lg text-white fw-fw-bolder w-full rounded-md text-cente my-4"
+              >
+                {isSubmitting ? " loading" : "Book Now"}
+              </button>
+            </Form>
+          );
+        }}
       </Formik>
     </div>
   );

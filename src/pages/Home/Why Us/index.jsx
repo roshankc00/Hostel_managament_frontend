@@ -13,10 +13,14 @@ const WhyUs = () => {
           </h1>
         </div>
         <p className="text-justify">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-          possimus nisi doloremque culpa unde cum rerum optio molestiae eum
-          praesentium dolorum, non atque quae eveniet nostrum labore odio
-          provident ullam?
+          Khojdau.com streamlines hostel exploration and booking. Forget the
+          tedious hunt on Google Maps or wandering unknown streets. Our platform
+          provides a smooth experience, letting you explore hostels, view
+          authentic room photos, and book directly through us. The images you
+          see reflect the real deal, ensuring confidence in your choice. Plus,
+          no upfront payments are required on our site. Bookings are sealed
+          based on mutual understanding between you and the hostel owner, giving
+          you flexibility and trust in securing your accommodation hassle-free.
         </p>
       </div>
 
@@ -28,10 +32,14 @@ const WhyUs = () => {
           </h1>
         </div>
         <p className="text-justify">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-          possimus nisi doloremque culpa unde cum rerum optio molestiae eum
-          praesentium dolorum, non atque quae eveniet nostrum labore odio
-          provident ullam?
+          Currently, our services are tailored to specific locations within
+          Kathmandu Valley due to constraints related to resources and manpower.
+          We understand your anticipation and eagerness for our services to
+          reach your area. Please bear with us as we work diligently to expand
+          our reach. Rest assured, we're committed to extending our services to
+          more areas in the future. Your patience and understanding during this
+          phase are immensely appreciated as we strive to enhance our
+          capabilities and serve a broader audience.
         </p>
       </div>
     </div>

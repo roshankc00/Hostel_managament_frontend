@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { logedin } from "./auth.slice";
 import SignInWithGoogle from "../../components/SignInWithGoogle";
 import styles from "./signin.module.css";
-
+import { CiLock } from "react-icons/ci";
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -118,8 +118,17 @@ const SignIn = () => {
         }}
       </Formik>
       <div>
-        <Link to="/signup" className="text-xl mt-20">
+        <Link to="/signup" className="text-xl mt-20 text-blue-600">
           Dont have an account? Signup
+        </Link>
+      </div>
+      <div>
+        <Link
+          to="/forget-password"
+          className="text-[18px] mt-5 flex gap-1 items-center text-blue-600"
+        >
+          <CiLock />
+          Forget Password
         </Link>
       </div>
     </div>

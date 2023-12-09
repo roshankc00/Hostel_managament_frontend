@@ -42,7 +42,7 @@ const RoomCategory = () => {
 
   const deleteRoomHandler = async () => {
     if (idToBeDeleted) {
-      const response = await deleteData(`room-hostel/${idToBeDeleted}`);
+      const response = await deleteData(`room-hostel/${idToBeDeleted}`, token);
       if (response.success) {
         const newData = allRooms.filter((item) => item._id !== idToBeDeleted);
         setallRooms(newData);
@@ -76,8 +76,8 @@ const RoomCategory = () => {
                   <RoomCard
                     name={room?.name}
                     price={room?.price}
-                    totalRooms={room?.totalRooms}
-                    totalVacentRooms={room?.totalVacentRooms}
+                    totalSeats={room?.totalSeats}
+                    totalVacentSeats={room?.totalVacentSeats}
                     description={room?.description}
                     image={room?.image?.url}
                   />

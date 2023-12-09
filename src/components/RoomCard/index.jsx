@@ -5,8 +5,8 @@ const RoomCard = ({
   price,
   description,
   image,
-  totalRooms,
-  totalVacentRooms,
+  totalSeats,
+  totalVacentSeats,
 }) => {
   return (
     <div className="shadow-lg rounded-lg grid grid-cols-2 gap-4 justify-center min-w-[350px]">
@@ -19,8 +19,8 @@ const RoomCard = ({
         <h1 className="text-xl font-semibold">{name}</h1>
         <p>Rs. {price}/mo</p>
         <p className="capitalize">{description}</p>
-        <p>Total Rooms : {totalRooms}</p>
-        <p>VacentRooms: {totalVacentRooms}</p>
+        <p>Total Seats : {totalSeats}</p>
+        <p>VacentSeats: {totalVacentSeats}</p>
       </div>
     </div>
   );
